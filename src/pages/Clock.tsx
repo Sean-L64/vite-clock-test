@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react";
 import "../css/App.css";
-
+import backgroundImage from "../media/Sequoia-Sunrise.png"
 // Example JSON Schedule
 const scheduleData = {
   'A Day': [
     { name: 'Period 1', start_hour: 7, start_minute: 32, end_hour: 8, end_minute: 26 },
     { name: 'Period 2', start_hour: 8, start_minute: 30, end_hour: 9, end_minute: 23 },
-    { name: 'Hawks Nest | Capstone', start_hour: 9, start_minute: 27, end_hour: 9, end_minute: 52},
+    { name: 'Hawks Nest | Capstone', start_hour: 9, start_minute: 27, end_hour: 9, end_minute: 52 },
     { name: 'Period 3', start_hour: 9, start_minute: 56, end_hour: 10, end_minute: 49 },
     { name: 'Period 5A', start_hour: 10, start_minute: 53, end_hour: 11, end_minute: 23 },
     { name: 'Period 5B', start_hour: 11, start_minute: 25, end_hour: 11, end_minute: 55 },
@@ -17,7 +17,7 @@ const scheduleData = {
   'B Day': [
     { name: 'Period 4', start_hour: 7, start_minute: 32, end_hour: 8, end_minute: 26 },
     { name: 'Period 1', start_hour: 8, start_minute: 30, end_hour: 9, end_minute: 23 },
-    { name: 'Hawks Nest | Capstone', start_hour: 9, start_minute: 27, end_hour: 9, end_minute: 52},
+    { name: 'Hawks Nest | Capstone', start_hour: 9, start_minute: 27, end_hour: 9, end_minute: 52 },
     { name: 'Period 2', start_hour: 9, start_minute: 56, end_hour: 10, end_minute: 49 },
     { name: 'Period 8A', start_hour: 10, start_minute: 53, end_hour: 11, end_minute: 23 },
     { name: 'Period 8B', start_hour: 11, start_minute: 25, end_hour: 11, end_minute: 55 },
@@ -28,7 +28,7 @@ const scheduleData = {
   'C Day': [
     { name: 'Period 3', start_hour: 7, start_minute: 32, end_hour: 8, end_minute: 26 },
     { name: 'Period 4', start_hour: 8, start_minute: 30, end_hour: 9, end_minute: 23 },
-    { name: 'Hawks Nest | Capstone', start_hour: 9, start_minute: 27, end_hour: 9, end_minute: 52},
+    { name: 'Hawks Nest | Capstone', start_hour: 9, start_minute: 27, end_hour: 9, end_minute: 52 },
     { name: 'Period 1', start_hour: 9, start_minute: 56, end_hour: 10, end_minute: 49 },
     { name: 'Period 7A', start_hour: 10, start_minute: 53, end_hour: 11, end_minute: 23 },
     { name: 'Period 7B', start_hour: 11, start_minute: 25, end_hour: 11, end_minute: 55 },
@@ -39,7 +39,7 @@ const scheduleData = {
   'D Day': [
     { name: 'Period 2', start_hour: 7, start_minute: 32, end_hour: 8, end_minute: 26 },
     { name: 'Period 3', start_hour: 8, start_minute: 30, end_hour: 9, end_minute: 23 },
-    { name: 'Hawks Nest | Capstone', start_hour: 9, start_minute: 27, end_hour: 9, end_minute: 52},
+    { name: 'Hawks Nest | Capstone', start_hour: 9, start_minute: 27, end_hour: 9, end_minute: 52 },
     { name: 'Period 4', start_hour: 9, start_minute: 56, end_hour: 10, end_minute: 49 },
     { name: 'Period 6A', start_hour: 10, start_minute: 53, end_hour: 11, end_minute: 23 },
     { name: 'Period 6B', start_hour: 11, start_minute: 25, end_hour: 11, end_minute: 55 },
@@ -48,7 +48,7 @@ const scheduleData = {
     { name: 'Period 8', start_hour: 13, start_minute: 30, end_hour: 14, end_minute: 23 },
   ],
   'none': [
-    
+
   ],
 };
 
@@ -106,7 +106,7 @@ export default function Clock() {
     }
 
     setCurrentPeriod(activePeriod); // Use this to set the current period
-    
+
 
   }, [currentTime, dayname]);
 
@@ -120,7 +120,17 @@ export default function Clock() {
   };
 
   return (
-    <div className="clock">
+    <div
+      className="clock"
+      style={{
+        backgroundImage: `url(${backgroundImage})`,
+        backgroundSize: 'cover', // Optional: Adjust as needed
+        backgroundRepeat: 'no-repeat', // Optional: Adjust as needed
+        height: '100vh', // Optional: Adjust as needed
+        width: '100vw' // Optional: Adjust as needed
+      }}
+    >
+
       <div id="time">
         <h2 className="text-center font-bold text-4xl flex time-items" id="clock-date"> {localDate}</h2>
         <h1 className="text-center font-bold text-7xl flex time-items" id="clock-time"> {currentTime.toLocaleTimeString()}</h1>
