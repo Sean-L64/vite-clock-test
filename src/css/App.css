@@ -78,8 +78,9 @@ body {
   align-items: center;
   gap: 12px;
   text-align: center;
-  margin-bottom: 10vh;
+  margin-bottom: 25vh;
   order: 2;
+
   /* Right */
 }
 
