@@ -130,7 +130,6 @@ export default function Clock() {
         width: '100vw' // Optional: Adjust as needed
       }}
     >
-
       <div id="time">
         <h2 className="text-center font-bold text-4xl flex time-items" id="clock-date"> {localDate}</h2>
         <h1 className="text-center font-bold text-7xl flex time-items" id="clock-time"> {currentTime.toLocaleTimeString()}</h1>
@@ -153,6 +152,7 @@ export default function Clock() {
           );
         })}
       </div>
+
     </div>
   );
 }
