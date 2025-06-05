@@ -53,7 +53,7 @@ body {
   flex-shrink: 1;
   max-height: none;
   /* This is the key: allow enough height but prevent overflow */
-  margin: 0 auto;
+  /* margin: 0 auto; */
   border: 1px solid rgba(255, 255, 255, 0.5);
   padding: 8px;
   border-radius: 4px;
