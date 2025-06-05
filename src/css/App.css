@@ -138,7 +138,7 @@ body {
 }
 
 .period.active .period-text {
-  font-size: 38px;
+  font-size: 36px;
   /* Slightly larger text for active period */
   color: #fff;
   /* Ensure text is visible */
@@ -164,19 +164,18 @@ body {
 .period-text {
   text-transform: capitalize;
   text-shadow: 0px 0px 10px black;
-  margin-right: 10vw;
   font-size: 32px;
 }
 
 .period-time {
   color: rgba(255, 255, 255, 1);
   text-shadow: 0px 0px 10px black;
-  font-size: 24px;
+  font-size: 18px;
   margin: 2px 0;
 }
 
 /* Base: mobile-first (stacked) */
-@media screen and (max-width: 1100px) {
+@media screen and (max-width: 900px) {
 
   /* #time {
   display: flex;
@@ -191,170 +190,169 @@ body {
 
 
 
-html,
-body {
-  height: 100vh;
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-  background-size: cover;
-  overflow: hidden;
+  html,
+  body {
+    height: 100vh;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    background-size: cover;
+    overflow: hidden;
 
-}
-
-
-body {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin: 0;
-  padding: 0;
-}
-
-/* Base: mobile-first (stacked) */
-.clock {
-  display: flex;
-  flex-direction: column-reverse;
-  align-items: stretch;
-  padding-top: 2vh 0;
-  /* Small top padding to avoid top bar overlap */
-  width: 100%;
-  gap: 1.5vh;
-  /* Controlled spacing between time and schedule */
-  box-sizing: border-box;
-  max-height: 100vh;
-  overflow-y: auto;
-  /* Allow scroll if needed */
-}
+  }
 
 
+  body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+  }
 
+  /* Base: mobile-first (stacked) */
+  .clock {
+    padding: 2rem;
 
-
-
-#schedule {
-  transform: scale(1);
-  transform-origin: top center;
-  flex-shrink: 1;
-  max-height: none;
-  /* This is the key: allow enough height but prevent overflow */
-  margin: 0 auto;
-  border: 1px solid rgba(255, 255, 255, 0.5);
-  padding: 8px;
-  border-radius: 4px;
-  box-sizing: border-box;
-  background: light-dark(rgba(255, 255, 255, 0.3), rgba(33, 33, 33, 0.6));
-  color: white;
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  max-width: 600px;
-  gap: 1vh;
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-
-}
-
-#time {
-  margin: 0;
-  padding: 0;
-  display: flex;
-  text-shadow: 0px 0px 5px black;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  gap: 12px;
-  text-align: center;
-
-}
-
-#clock-date {
-  color: white;
-  font-family: 'Montserrat', sans-serif;
-  font-weight: 800;
-  font-size: var(--text-2xl);
-  line-height: var(--tw-leading, var(--text-2xl--line-height));
-  margin: 0;
-}
-
-#clock-time {
-  display: flex;
-  color: white;
-  padding: 0.5rem;
-  font-size: var(--text-5xl);
-  line-height: var(--tw-leading, var(--text-4xl--line-height));
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-}
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: stretch;
+    padding-top: 5vh 0;
+    /* Small top padding to avoid top bar overlap */
+    width: 100%;
+    gap: 1.5vh;
+    /* Controlled spacing between time and schedule */
+    box-sizing: border-box;
+    max-height: 100vh;
+    overflow-y: auto;
+    /* Allow scroll if needed */
+  }
 
 
 
 
 
-.period {
-  /* width: max-content; */
-  display: flex;
-  justify-content: space-between;
-  font-family: 'Montserrat', sans-serif;
-  align-items: center;
-  /* box-sizing: border-box; */
-  padding: 4px 8px;
-  border: 1px solid rgba(255, 255, 255, 0.5);
-  background-color: light-dark(rgba(255, 255, 255, 0.2), rgba(130, 130, 130, 0.25));
-  border-radius: 3px;
-  flex-grow: 1;
-  font-weight: 700;
-  box-sizing: border-box;
-}
 
-.period.active {
-  background-color: rgba(255, 255, 255, 0.5);
-  /* Lighter background for the active period */
-  color: #fff;
-  /* Ensure text is readable */
-  box-shadow: 0 0 15px rgba(255, 255, 255, 0.7);
-  /* Subtle glowing effect */
-  transition: all 0.3s ease;
-  /* Smooth transition effect */
-}
 
-.period.active .period-text {
-  font-size: 20px;
-  /* Slightly larger text for active period */
-  color: #fff;
-  /* Ensure text is visible */
-  font-weight: 800;
-  /* Bolden the text */
-  text-shadow: 0 0 12px rgba(255, 255, 255, 0.8);
-  /* More intense text shadow */
-}
+  #schedule {
+    margin-top: 5vh;
+    margin: auto;
+    transform: scale(1);
+    order: 1;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    padding: 8px;
+    border-radius: 4px;
+    box-sizing: border-box;
+    background: light-dark(rgba(255, 255, 255, 0.3), rgba(33, 33, 33, 0.6));
+    color: white;
+    display: flex;
+    flex-direction: column;
+    gap: 1vh;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
 
-.period.active .period-time {
-  color: rgba(255, 255, 255, 1);
-  /* Make time text brighter */
-  font-weight: 600;
-  /* Optional: make the time text a bit more prominent */
-}
 
-/* Optional: Adding hover effect for periods
+  }
+
+  #time {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    text-shadow: 0px 0px 5px black;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding-top: 2.5vh;
+    gap: 12px;
+    text-align: center;
+
+  }
+
+  #clock-date {
+    color: white;
+    font-weight: 800;
+    font-size: var(--text-2xl);
+    line-height: var(--tw-leading, var(--text-2xl--line-height));
+    margin: 0;
+  }
+
+  #clock-time {
+    display: flex;
+    color: white;
+    padding: 0.5rem;
+    font-size: var(--text-5xl);
+    line-height: var(--tw-leading, var(--text-4xl--line-height));
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+
+
+
+
+
+  .period {
+    /* width: max-content; */
+    display: flex;
+    justify-content: space-between;
+    font-family: 'Montserrat', sans-serif;
+    align-items: center;
+    /* box-sizing: border-box; */
+    padding: 4px 9px;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    background-color: light-dark(rgba(255, 255, 255, 0.2), rgba(130, 130, 130, 0.25));
+    border-radius: 3px;
+    flex-grow: 1;
+    font-weight: 700;
+    box-sizing: border-box;
+  }
+
+  .period.active {
+    background-color: rgba(255, 255, 255, 0.5);
+    /* Lighter background for the active period */
+    color: #fff;
+    /* Ensure text is readable */
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.7);
+    /* Subtle glowing effect */
+    transition: all 0.3s ease;
+    /* Smooth transition effect */
+  }
+
+  .period.active .period-text {
+    font-size: 20px;
+    /* Slightly larger text for active period */
+    color: #fff;
+    /* Ensure text is visible */
+    font-weight: 800;
+    /* Bolden the text */
+    text-shadow: 0 0 12px rgba(255, 255, 255, 0.8);
+    /* More intense text shadow */
+  }
+
+  .period.active .period-time {
+    color: rgba(255, 255, 255, 1);
+    /* Make time text brighter */
+    font-weight: 600;
+    /* Optional: make the time text a bit more prominent */
+  }
+
+  /* Optional: Adding hover effect for periods
 .period:hover {
   background-color: rgba(255, 255, 255, 0.3);
   cursor: pointer;
 } */
 
-.period-text {
-  margin-right: 15vw;
-  text-transform: capitalize;
-  text-shadow: 0px 0px 10px black;
-  font-size: 18px;
-}
+  .period-text {
+    text-transform: capitalize;
+    text-shadow: 0px 0px 10px black;
+    font-size: 24px;
+  }
 
-.period-time {
-  color: rgba(255, 255, 255, 1);
-  text-shadow: 0px 0px 10px black;
-  font-size: 18px;
-  margin: 2px 0;
-}
+  .period-time {
+    color: rgba(255, 255, 255, 1);
+    text-shadow: 0px 0px 10px black;
+    font-size: 14px;
+    margin: 2px 0;
+  }
 }
