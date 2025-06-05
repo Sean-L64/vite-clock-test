@@ -321,7 +321,7 @@ body {
   }
 
   .period.active .period-text {
-    font-size: 20px;
+    font-size: 28px;
     /* Slightly larger text for active period */
     color: #fff;
     /* Ensure text is visible */
