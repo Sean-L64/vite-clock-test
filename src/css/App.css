@@ -237,7 +237,7 @@ body {
   #schedule {
     margin-top: 5vh;
     margin: auto;
-    transform: scale(1);
+    transform: scale(0.95);
     order: 1;
     border: 1px solid rgba(255, 255, 255, 0.5);
     padding: 8px;
@@ -247,6 +247,7 @@ body {
     color: white;
     display: flex;
     flex-direction: column;
+    margin-bottom: 10vh;
     gap: 1vh;
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
