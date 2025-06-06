@@ -67,6 +67,7 @@ body {
   gap: 1vh;
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
+  margin-bottom: 25vh;
 
 }
 
