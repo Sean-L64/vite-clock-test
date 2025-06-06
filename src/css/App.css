@@ -239,7 +239,7 @@ body {
   #schedule {
     margin-top: 5vh;
     margin: auto;
-    transform: scale(0.95);
+    transform: scale(1.1);
     order: 1;
     border: 1px solid rgba(255, 255, 255, 0.5);
     padding: 8px;
@@ -322,7 +322,7 @@ body {
   }
 
   .period.active .period-text {
-    font-size: 28px;
+    font-size: 18px;
     /* Slightly larger text for active period */
     color: #fff;
     /* Ensure text is visible */
@@ -348,7 +348,8 @@ body {
   .period-text {
     text-transform: capitalize;
     text-shadow: 0px 0px 10px black;
-    font-size: 24px;
+    padding-right: 12vw;
+    font-size: 14px;
   }
 
   .period-time {
