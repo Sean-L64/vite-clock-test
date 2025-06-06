@@ -48,7 +48,7 @@ body {
 
 
 #schedule {
-  transform: scale(1);
+  transform: scale(1.2);
   transform-origin: top center;
   flex-shrink: 1;
   max-height: none;
@@ -165,7 +165,7 @@ body {
 .period-text {
   text-transform: capitalize;
   text-shadow: 0px 0px 10px black;
-  font-size: 32px;
+  font-size: 24px;
 }
 
 .period-time {

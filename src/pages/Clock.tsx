@@ -48,19 +48,25 @@ const scheduleData = {
     { name: 'Period 8', start_hour: 13, start_minute: 30, end_hour: 14, end_minute: 23 },
   ],
   'test1': [
-    {name: "Hawk's Nest", start_hour: 7, start_minute: 32, end_hour: 9, end_minute: 2},
-    {name: "Period 1", start_hour: 9, start_minute: 8, end_hour: 10, end_minute: 35},
-    {name: "Period 5", start_hour: 10, start_minute: 41, end_hour: 12, end_minute: 8}
+    { name: "Hawk's Nest", start_hour: 7, start_minute: 32, end_hour: 9, end_minute: 0 },
+    { name: "Period 1", start_hour: 9, start_minute: 6, end_hour: 10, end_minute: 34 },
+    { name: "Period 5", start_hour: 10, start_minute: 41, end_hour: 12, end_minute: 8 },
+    { name: "Aspire/Capstone Make-up", start_hour: 12, start_minute: 15, end_hour: 2, end_minute: 0 },
+    { name: "Graduation Rehearsal (Gym)", start_hour: 1, start_minute: 0, end_hour: 2, end_minute: 23 },
   ],
   'test2': [
-    {name: "Period 2", start_hour: 7, start_minute: 32, end_hour: 9, end_minute: 0},
-    {name: "Period 4", start_hour: 9, start_minute: 6, end_hour: 10, end_minute: 34},
-    {name: "Period 8", start_hour: 10, start_minute: 40, end_hour: 12, end_minute: 8}
+    { name: "Period 2", start_hour: 7, start_minute: 32, end_hour: 9, end_minute: 0 },
+    { name: "Period 4", start_hour: 9, start_minute: 6, end_hour: 10, end_minute: 34 },
+    { name: "Period 8", start_hour: 10, start_minute: 40, end_hour: 12, end_minute: 8 },
+    { name: "Aspire/Capstone Make-up", start_hour: 12, start_minute: 15, end_hour: 2, end_minute: 0 },
+    { name: "Graduation Rehearsal (Gym)", start_hour: 1, start_minute: 0, end_hour: 2, end_minute: 23 },
   ],
   'test3': [
-    {name: "Period 3", start_hour: 7, start_minute: 32, end_hour: 9, end_minute: 0},
-    {name: "Period 6", start_hour: 9, start_minute: 6, end_hour: 10, end_minute: 34},
-    {name: "Period 7", start_hour: 10, start_minute: 40, end_hour: 12, end_minute: 8}
+    { name: "Period 3", start_hour: 7, start_minute: 32, end_hour: 9, end_minute: 0 },
+    { name: "Period 6", start_hour: 9, start_minute: 6, end_hour: 10, end_minute: 34 },
+    { name: "Period 7", start_hour: 10, start_minute: 40, end_hour: 12, end_minute: 8 },
+    { name: "Aspire/Capstone Make-up", start_hour: 12, start_minute: 15, end_hour: 2, end_minute: 0 },
+    { name: "Graduation Rehearsal (Gym)", start_hour: 1, start_minute: 0, end_hour: 2, end_minute: 23 },
   ],
   'none': [
 
@@ -87,7 +93,9 @@ export default function Clock() {
   const date = new Date();
   const localDate = date.toLocaleDateString();
   const [currentTime, setCurrentTime] = useState(new Date());
-  const [currentPeriod, setCurrentPeriod] = useState<string | null>(null); // Using string | null
+  const [currentPeriods, setCurrentPeriods] = useState<string[]>([]);
+
+  // const [currentPeriod, setCurrentPeriod] = useState<string | null>(null); // Using string | null
   // const dayname = getScheduleDay(); // Dynamically set this based on actual day
   const dayname = 'test1'; // Dynamically set this based on actual day
 
@@ -106,7 +114,7 @@ export default function Clock() {
   useEffect(() => {
     const now = currentTime;
     const periods = scheduleData[dayname];
-    let activePeriod: string | null = null;
+    const activePeriods: string[] = [];
 
     for (let i = 0; i < periods.length; i++) {
       const { start_hour, start_minute, end_hour, end_minute, name } = periods[i];
@@ -115,12 +123,12 @@ export default function Clock() {
       const endTime = new Date(now.getFullYear(), now.getMonth(), now.getDate(), end_hour, end_minute).getTime();
 
       if (now.getTime() >= startTime && now.getTime() <= endTime) {
-        activePeriod = name;
-        break;
+        activePeriods.push(name); // collect all overlapping periods
+
       }
     }
 
-    setCurrentPeriod(activePeriod); // Use this to set the current period
+    setCurrentPeriods(activePeriods); // Use this to set the current period
 
 
   }, [currentTime, dayname]);
@@ -159,7 +167,7 @@ export default function Clock() {
           return (
             <div
               key={index}
-              className={`period ${currentPeriod === name ? 'active' : ''}`}
+              className={`period ${currentPeriods.includes(name) ? 'active' : ''}`}
             >
               <span className="period-text">{name}</span>
               <span className="period-time">{periodStartTime} - {periodEndTime}</span>
