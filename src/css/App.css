@@ -322,7 +322,7 @@ body {
   }
 
   .period.active .period-text {
-    font-size: 18px;
+    font-size: 24px;
     /* Slightly larger text for active period */
     color: #fff;
     /* Ensure text is visible */
@@ -348,8 +348,7 @@ body {
   .period-text {
     text-transform: capitalize;
     text-shadow: 0px 0px 10px black;
-    padding-right: 12vw;
-    font-size: 14px;
+    font-size: 20px;
   }
 
   .period-time {
