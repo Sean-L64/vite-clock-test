@@ -47,6 +47,21 @@ const scheduleData = {
     { name: 'Period 7', start_hour: 12, start_minute: 23, end_hour: 13, end_minute: 26 },
     { name: 'Period 8', start_hour: 13, start_minute: 30, end_hour: 14, end_minute: 23 },
   ],
+  'test1': [
+    {name: "Hawk's Nest", start_hour: 7, start_minute: 32, end_hour: 9, end_minute: 2},
+    {name: "Period 1", start_hour: 9, start_minute: 8, end_hour: 10, end_minute: 35},
+    {name: "Period 5", start_hour: 10, start_minute: 41, end_hour: 12, end_minute: 8}
+  ],
+  'test2': [
+    {name: "Period 2", start_hour: 7, start_minute: 32, end_hour: 9, end_minute: 0},
+    {name: "Period 4", start_hour: 9, start_minute: 6, end_hour: 10, end_minute: 34},
+    {name: "Period 8", start_hour: 10, start_minute: 40, end_hour: 12, end_minute: 8}
+  ],
+  'test3': [
+    {name: "Period 3", start_hour: 7, start_minute: 32, end_hour: 9, end_minute: 0},
+    {name: "Period 6", start_hour: 9, start_minute: 6, end_hour: 10, end_minute: 34},
+    {name: "Period 7", start_hour: 10, start_minute: 40, end_hour: 12, end_minute: 8}
+  ],
   'none': [
 
   ],
@@ -74,7 +89,7 @@ export default function Clock() {
   const [currentTime, setCurrentTime] = useState(new Date());
   const [currentPeriod, setCurrentPeriod] = useState<string | null>(null); // Using string | null
   // const dayname = getScheduleDay(); // Dynamically set this based on actual day
-  const dayname = 'B Day'; // Dynamically set this based on actual day
+  const dayname = 'test1'; // Dynamically set this based on actual day
 
 
   // Set interval to update time every second
