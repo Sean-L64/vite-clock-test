@@ -226,7 +226,7 @@ body {
     /* Controlled spacing between time and schedule */
     box-sizing: border-box;
     max-height: 100vh;
-    overflow-y: auto;
+    overflow: hidden;
     /* Allow scroll if needed */
   }
 
