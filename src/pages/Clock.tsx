@@ -51,22 +51,22 @@ const scheduleData = {
     { name: "Hawk's Nest", start_hour: 7, start_minute: 32, end_hour: 9, end_minute: 0 },
     { name: "Period 1", start_hour: 9, start_minute: 6, end_hour: 10, end_minute: 34 },
     { name: "Period 5", start_hour: 10, start_minute: 41, end_hour: 12, end_minute: 8 },
-    { name: "Aspire/Capstone Make-up", start_hour: 12, start_minute: 15, end_hour: 2, end_minute: 0 },
-    { name: "Graduation Rehearsal (Gym)", start_hour: 1, start_minute: 0, end_hour: 2, end_minute: 23 },
+    { name: "Aspire/Capstone Make-up", start_hour: 12, start_minute: 15, end_hour: 14, end_minute: 0 },
+    { name: "Graduation Rehearsal (Gym)", start_hour: 13, start_minute: 0, end_hour: 14, end_minute: 23 },
   ],
   'test2': [
     { name: "Period 2", start_hour: 7, start_minute: 32, end_hour: 9, end_minute: 0 },
     { name: "Period 4", start_hour: 9, start_minute: 6, end_hour: 10, end_minute: 34 },
     { name: "Period 8", start_hour: 10, start_minute: 40, end_hour: 12, end_minute: 8 },
-    { name: "Aspire/Capstone Make-up", start_hour: 12, start_minute: 15, end_hour: 2, end_minute: 0 },
-    { name: "Graduation Rehearsal (Gym)", start_hour: 1, start_minute: 0, end_hour: 2, end_minute: 23 },
+    { name: "Aspire/Capstone Make-up", start_hour: 12, start_minute: 15, end_hour: 14, end_minute: 0 },
+    { name: "Graduation Rehearsal (Gym)", start_hour: 13, start_minute: 0, end_hour: 14, end_minute: 23 },
   ],
   'test3': [
     { name: "Period 3", start_hour: 7, start_minute: 32, end_hour: 9, end_minute: 0 },
     { name: "Period 6", start_hour: 9, start_minute: 6, end_hour: 10, end_minute: 34 },
     { name: "Period 7", start_hour: 10, start_minute: 40, end_hour: 12, end_minute: 8 },
-    { name: "Aspire/Capstone Make-up", start_hour: 12, start_minute: 15, end_hour: 2, end_minute: 0 },
-    { name: "Graduation Rehearsal (Gym)", start_hour: 1, start_minute: 0, end_hour: 2, end_minute: 23 },
+    { name: "Aspire/Capstone Make-up", start_hour: 12, start_minute: 15, end_hour: 14, end_minute: 0 },
+    { name: "Graduation Rehearsal (Gym)", start_hour: 13, start_minute: 0, end_hour: 14, end_minute: 23 },
   ],
   'none': [
 
