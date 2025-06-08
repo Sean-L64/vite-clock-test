@@ -61,6 +61,7 @@ body {
   background: light-dark(rgba(255, 255, 255, 0.3), rgba(33, 33, 33, 0.6));
   color: white;
   display: flex;
+  margin-left: 0.5rem;
   flex-direction: column;
   width: 100%;
   max-width: 600px;
@@ -140,7 +141,7 @@ body {
 }
 
 .period.active .period-text {
-  font-size: 36px;
+  font-size: 32px;
   /* Slightly larger text for active period */
   color: #fff;
   /* Ensure text is visible */
