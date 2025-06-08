@@ -94,6 +94,9 @@ export default function Clock() {
   const localDate = date.toLocaleDateString();
   const [currentTime, setCurrentTime] = useState(new Date());
   const [currentPeriods, setCurrentPeriods] = useState<string[]>([]);
+  const [showAMPM, setShowAMPM] = useState(true);
+  const [use24Hour, setUse24Hour] = useState(false);
+
 
   // const [currentPeriod, setCurrentPeriod] = useState<string | null>(null); // Using string | null
   // const dayname = getScheduleDay(); // Dynamically set this based on actual day
@@ -142,40 +145,92 @@ export default function Clock() {
     return `${formattedHour}:${formattedMinute} ${period}`;
   };
 
+  const formatTime = (date: Date): string => {
+    const hours = date.getHours();
+    const minutes = date.getMinutes().toString().padStart(2, '0');
+    const seconds = date.getSeconds().toString().padStart(2, '0');
+
+    if (use24Hour) {
+      // 24-hour format with seconds
+      return `${hours.toString().padStart(2, '0')}:${minutes}:${seconds}`;
+    } else {
+      if (showAMPM) {
+        // 12-hour format with AM/PM
+        let h = hours % 12;
+        if (h === 0) h = 12; // Handle 12:00 correctly
+        const period = hours >= 12 ? 'PM' : 'AM'; // Add AM/PM suffix
+        return `${h}:${minutes}:${seconds} ${period}`;
+      } else {
+        // 12-hour format without AM/PM
+        let h = hours % 12;
+        if (h === 0) h = 12; // Handle 12:00 correctly
+        return `${h}:${minutes}:${seconds}`;
+      }
+    }
+  };
+
+
+
   return (
-    <div
-      className="clock"
-      style={{
-        backgroundImage: `url(${backgroundImage})`,
-        backgroundSize: 'cover', // Optional: Adjust as needed
-        backgroundRepeat: 'no-repeat', // Optional: Adjust as needed
-        height: '100vh', // Optional: Adjust as needed
-        width: '100vw' // Optional: Adjust as needed
-      }}
-    >
-      <div id="time">
-        <h2 className="text-center font-bold text-4xl flex time-items" id="clock-date"> {localDate}</h2>
-        <h1 className="text-center font-bold text-7xl flex time-items" id="clock-time"> {currentTime.toLocaleTimeString()}</h1>
+    <>
+      <div
+        className="clock"
+        style={{
+          backgroundImage: `url(${backgroundImage})`,
+          backgroundSize: 'cover', // Optional: Adjust as needed
+          backgroundRepeat: 'no-repeat', // Optional: Adjust as needed
+          height: '100vh', // Optional: Adjust as needed
+          width: '100vw' // Optional: Adjust as needed
+        }}
+      >
+        <div id="time">
+          <h2 className="text-center font-bold text-4xl flex time-items" id="clock-date"> {localDate}</h2>
+          <h1 className="text-center font-bold text-7xl flex time-items" id="clock-time">
+            {formatTime(currentTime)}
+
+          </h1>
+        </div>
+
+        <div id="schedule">
+          {scheduleData[dayname].map((period, index) => {
+            const { name, start_hour, start_minute, end_hour, end_minute } = period;
+            const periodStartTime = formatTo12Hour(start_hour, start_minute);
+            const periodEndTime = formatTo12Hour(end_hour, end_minute);
+
+            return (
+              <div
+                key={index}
+                className={`period ${currentPeriods.includes(name) ? 'active' : ''}`}
+              >
+                <span className="period-text">{name}</span>
+                <span className="period-time">{periodStartTime} - {periodEndTime}</span>
+              </div>
+            );
+          })}
+        </div>
+
+
+
       </div>
+      <div className="controls">
 
-      <div id="schedule">
-        {scheduleData[dayname].map((period, index) => {
-          const { name, start_hour, start_minute, end_hour, end_minute } = period;
-          const periodStartTime = formatTo12Hour(start_hour, start_minute);
-          const periodEndTime = formatTo12Hour(end_hour, end_minute);
 
-          return (
-            <div
-              key={index}
-              className={`period ${currentPeriods.includes(name) ? 'active' : ''}`}
-            >
-              <span className="period-text">{name}</span>
-              <span className="period-time">{periodStartTime} - {periodEndTime}</span>
-            </div>
-          );
-        })}
+        <button
+          onClick={() => setUse24Hour(prev => !prev)}
+          className="toggle-format-btn flex-1/2"
+        >
+          12 hr / 24 hr
+        </button>
+
+        <button
+          onClick={() => setShowAMPM(prev => !prev)}
+          className="toggle-format-btn"
+            disabled={use24Hour} // Disable if in 24-hour mode
+
+        >
+          {showAMPM ? 'Hide AM/PM' : 'Show AM/PM'}
+        </button>
       </div>
-
-    </div>
+    </>
   );
 }
