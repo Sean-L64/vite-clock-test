@@ -100,7 +100,7 @@ export default function Clock() {
 
   // const [currentPeriod, setCurrentPeriod] = useState<string | null>(null); // Using string | null
   // const dayname = getScheduleDay(); // Dynamically set this based on actual day
-  const dayname = 'test2'; // Dynamically set this based on actual day
+  const dayname = 'test3'; // Dynamically set this based on actual day
 
 
   // Set interval to update time every second
