@@ -155,17 +155,18 @@ export default function Clock() {
       return `${hours.toString().padStart(2, '0')}:${minutes}:${seconds}`;
     } else {
       if (showAMPM) {
-        // 12-hour format with AM/PM
         let h = hours % 12;
-        if (h === 0) h = 12; // Handle 12:00 correctly
-        const period = hours >= 12 ? 'PM' : 'AM'; // Add AM/PM suffix
-        return `${h}:${minutes}:${seconds} ${period}`;
+        if (h === 0) h = 12;
+        const formattedHour = h.toString().padStart(2, '0'); // Pad hour
+        const period = hours >= 12 ? 'PM' : 'AM';
+        return `${formattedHour}:${minutes}:${seconds} ${period}`;
       } else {
-        // 12-hour format without AM/PM
         let h = hours % 12;
-        if (h === 0) h = 12; // Handle 12:00 correctly
-        return `${h}:${minutes}:${seconds}`;
+        if (h === 0) h = 12;
+        const formattedHour = h.toString().padStart(2, '0');
+        return `${formattedHour}:${minutes}:${seconds}`;
       }
+
     }
   };
 
@@ -225,7 +226,7 @@ export default function Clock() {
         <button
           onClick={() => setShowAMPM(prev => !prev)}
           className="toggle-format-btn"
-            disabled={use24Hour} // Disable if in 24-hour mode
+          disabled={use24Hour} // Disable if in 24-hour mode
 
         >
           {showAMPM ? 'Hide AM/PM' : 'Show AM/PM'}

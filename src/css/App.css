@@ -91,7 +91,7 @@ body {
 #clock-date {
   color: white;
   text-shadow: 2px 2px 2px black;
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Roboto', sans-serif, monospace;
   font-weight: 800;
   font-size: 2.5rem;
   line-height: var(--tw-leading, var(--text-7xl--line-height));
@@ -100,6 +100,7 @@ body {
 
 #clock-time {
   display: flex;
+  width: 7ch;
   text-shadow: 2px 2px 2px black;
   color: white;
   padding: 0.5rem;
@@ -118,7 +119,7 @@ body {
   /* width: max-content; */
   display: flex;
   justify-content: space-between;
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Roboto', sans-serif, monospace;
   align-items: center;
   /* box-sizing: border-box; */
   padding: 4px 8px 4px 12px;
@@ -352,7 +353,7 @@ body {
     /* width: max-content; */
     display: flex;
     justify-content: space-between;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Roboto', sans-serif, monospace;
     align-items: center;
     /* box-sizing: border-box; */
     padding: 4px 9px;
