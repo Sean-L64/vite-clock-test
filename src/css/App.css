@@ -62,15 +62,15 @@ body {
   padding: 8px;
   border-radius: 4px;
   box-sizing: border-box;
-  background: light-dark(rgba(255, 255, 255, 0.3), rgba(33, 33, 33, 0.6));
+  background: light-dark(rgba(255, 255, 255, 0.3), rgba(22, 22, 22, 0.6));
   color: white;
   display: flex;
   flex-direction: column;
   width: 100%;
   max-width: 600px;
   gap: 1vh;
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
   margin-top: 10vh;
 
 }
@@ -128,7 +128,7 @@ body {
   /* box-sizing: border-box; */
   padding: 4px 8px 4px 12px;
   border: 1px solid rgba(255, 255, 255, 0.5);
-  background-color: light-dark(rgba(255, 255, 255, 0.2), rgba(130, 130, 130, 0.25));
+  background-color: light-dark(rgba(255, 255, 255, 0.2), rgba(45, 45, 45, 0.25));
   border-radius: 3px;
   flex-grow: 1;
   font-weight: 700;
@@ -149,9 +149,10 @@ body {
 }
 
 .period.active {
-  background-color: rgba(255, 255, 255, 0.5);
   /* Lighter background for the active period */
   color: #fff;
+  background-color: light-dark(rgba(16, 16, 16, 0.5), rgba(255, 255, 255, 0.5));
+
   /* Ensure text is readable */
   box-shadow: 0 0 15px rgba(255, 255, 255, 0.7);
   /* Subtle glowing effect */
@@ -202,6 +203,7 @@ body {
 
 .toggle-format-btn {
   flex: 1;
+  font-family: 'Roboto', sans-serif, monospace;
   width: 100%;
   /* Make both buttons stretch equally to fill space */
 
@@ -212,9 +214,9 @@ body {
   margin-bottom: 10px;
   /* Space between buttons */
   font-size: 18px;
-  border: 2px solid rgba(255, 255, 255, 0.357);
-  backdrop-filter: blur(24px);
-  background: light-dark(rgba(255, 255, 255, 0.3), rgba(33, 33, 33, 0.6));
+  border: 0.1px solid rgba(255, 255, 255, 0.357);
+  backdrop-filter: blur(6px);
+  background: light-dark(rgba(255, 255, 255, 0.138), rgba(33, 33, 33, 0.138));
   color: white;
   cursor: pointer;
   padding: 25px;
