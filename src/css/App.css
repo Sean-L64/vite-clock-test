@@ -33,24 +33,27 @@ body {
 }
 
 .clock {
+  transform: scale(1.075);
   display: flex;
   flex-direction: row;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
   /* This makes children like #schedule take full width */
   padding: 4rem;
   /* Remove default vertical padding */
-  gap: 6vw;
-
+  gap: 10%;
+  height: 100vh;
+  /* Ensure it takes full viewport height */
+  box-sizing: border-box;
+  /* Include padding in the element's total width and height */
   /* No flex gap */
-  width: 100%;
+  width: 100vw;
   overflow-y: auto;
 }
 
 
 #schedule {
-  transform: scale(1.2);
-  transform-origin: top center;
+  transform: scale(1.1);
   flex-shrink: 1;
   max-height: none;
   /* This is the key: allow enough height but prevent overflow */
@@ -62,14 +65,13 @@ body {
   background: light-dark(rgba(255, 255, 255, 0.3), rgba(33, 33, 33, 0.6));
   color: white;
   display: flex;
-  margin-left: 0.5rem;
   flex-direction: column;
   width: 100%;
   max-width: 600px;
   gap: 1vh;
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  margin-bottom: 25vh;
+  margin-top: 10vh;
 
 }
 
@@ -82,8 +84,9 @@ body {
   align-items: center;
   gap: 12px;
   text-align: center;
-  margin-bottom: 25vh;
+  margin-top: 10vh;
   order: 2;
+  width: 280px;
 
   /* Right */
 }
@@ -100,7 +103,8 @@ body {
 
 #clock-time {
   display: flex;
-  width: 7ch;
+  width: auto;
+  min-width: fit-content;
   text-shadow: 2px 2px 2px black;
   color: white;
   padding: 0.5rem;
@@ -129,6 +133,19 @@ body {
   flex-grow: 1;
   font-weight: 700;
   box-sizing: border-box;
+}
+
+.period-text {
+  text-transform: capitalize;
+  text-shadow: 0px 0px 10px black;
+  font-size: 28px;
+}
+
+.period-time {
+  color: rgba(255, 255, 255, 1);
+  text-shadow: 0px 0px 10px black;
+  font-size: 18px;
+  margin: 2px 0;
 }
 
 .period.active {
@@ -166,18 +183,7 @@ body {
   cursor: pointer;
 } */
 
-.period-text {
-  text-transform: capitalize;
-  text-shadow: 0px 0px 10px black;
-  font-size: 24px;
-}
 
-.period-time {
-  color: rgba(255, 255, 255, 1);
-  text-shadow: 0px 0px 10px black;
-  font-size: 18px;
-  margin: 2px 0;
-}
 
 .controls {
   position: absolute;
@@ -231,6 +237,46 @@ body {
   color: #666;
 }
 
+@media screen and (max-width: 1200px) and (min-width: 901px) {
+
+  .clock {
+    gap: 5%;
+
+  }
+
+  #clock-time {
+    font-size: 4rem;
+  }
+
+  #clock-date {
+    font-size: 2rem;
+  }
+
+  #schedule {
+    transform: scale(.95);
+  }
+
+  .controls {
+    position: absolute;
+    bottom: 6vh;
+    display: flex;
+    /* Position from the bottom of the screen */
+    right: 20px;
+    /* Position from the right side */
+    /* Space between buttons */
+
+  }
+
+  .toggle-format-btn {
+    align-items: center;
+    display: block;
+    /* Space between buttons */
+    font-size: 14px;
+    padding: 5px 10px;
+
+  }
+}
+
 /* Base: mobile-first (stacked) */
 @media screen and (max-width: 900px) {
 
@@ -273,7 +319,7 @@ body {
 
     display: flex;
     flex-direction: column-reverse;
-    align-items: stretch;
+    align-items: center;
     padding-top: 5vh 0;
     /* Small top padding to avoid top bar overlap */
     width: 100%;
@@ -292,9 +338,8 @@ body {
 
 
   #schedule {
-    margin-top: 5vh;
+    transform: none;
     margin: auto;
-    transform: scale(1.1);
     order: 1;
     border: 1px solid rgba(255, 255, 255, 0.5);
     padding: 8px;
@@ -336,6 +381,8 @@ body {
 
   #clock-time {
     display: flex;
+    width: 7ch;
+    min-width: fit-content;
     color: white;
     padding: 0.5rem;
     font-size: var(--text-5xl);
@@ -432,4 +479,5 @@ body {
     padding: 5px 10px;
 
   }
+
 }

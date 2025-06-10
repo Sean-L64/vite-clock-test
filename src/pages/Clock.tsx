@@ -174,44 +174,49 @@ export default function Clock() {
 
   return (
     <>
-      <div
-        className="clock"
+      <div 
+        className="page"
         style={{
           backgroundImage: `url(${backgroundImage})`,
           backgroundSize: 'cover', // Optional: Adjust as needed
           backgroundRepeat: 'no-repeat', // Optional: Adjust as needed
           height: '100vh', // Optional: Adjust as needed
           width: '100vw' // Optional: Adjust as needed
-        }}
-      >
-        <div id="time">
-          <h2 className="text-center font-bold text-4xl flex time-items" id="clock-date"> {localDate}</h2>
-          <h1 className="text-center font-bold text-7xl flex time-items" id="clock-time">
-            {formatTime(currentTime)}
+        }}>
 
-          </h1>
+        <div
+          className="clock"
+        >
+
+          <div id="time">
+            <h2 className="text-center font-bold text-4xl flex time-items" id="clock-date"> {localDate}</h2>
+            <h1 className="text-center font-bold text-7xl flex time-items" id="clock-time">
+              {formatTime(currentTime)}
+
+            </h1>
+          </div>
+
+          <div id="schedule">
+            {scheduleData[dayname].map((period, index) => {
+              const { name, start_hour, start_minute, end_hour, end_minute } = period;
+              const periodStartTime = formatTo12Hour(start_hour, start_minute);
+              const periodEndTime = formatTo12Hour(end_hour, end_minute);
+
+              return (
+                <div
+                  key={index}
+                  className={`period ${currentPeriods.includes(name) ? 'active' : ''}`}
+                >
+                  <span className="period-text">{name}</span>
+                  <span className="period-time">{periodStartTime} - {periodEndTime}</span>
+                </div>
+              );
+            })}
+          </div>
+
+
+
         </div>
-
-        <div id="schedule">
-          {scheduleData[dayname].map((period, index) => {
-            const { name, start_hour, start_minute, end_hour, end_minute } = period;
-            const periodStartTime = formatTo12Hour(start_hour, start_minute);
-            const periodEndTime = formatTo12Hour(end_hour, end_minute);
-
-            return (
-              <div
-                key={index}
-                className={`period ${currentPeriods.includes(name) ? 'active' : ''}`}
-              >
-                <span className="period-text">{name}</span>
-                <span className="period-time">{periodStartTime} - {periodEndTime}</span>
-              </div>
-            );
-          })}
-        </div>
-
-
-
       </div>
       <div className="controls">
 
