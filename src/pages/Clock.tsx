@@ -66,7 +66,7 @@ const scheduleData = {
     { name: "Period 6", start_hour: 9, start_minute: 6, end_hour: 10, end_minute: 34 },
     { name: "Period 7", start_hour: 10, start_minute: 40, end_hour: 12, end_minute: 8 },
     { name: "ASPIRE/Capstone Make-up", start_hour: 12, start_minute: 15, end_hour: 14, end_minute: 0 },
-    { name: "Graduation Rehearsal (Gym)", start_hour: 13, start_minute: 0, end_hour: 14, end_minute: 23 },
+    { name: "2025 Graduation", start_hour: 18, start_minute: 0, end_hour: 20, end_minute: 23 },
   ],
   'none': [
 
